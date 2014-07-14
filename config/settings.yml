@@ -1,5 +1,5 @@
 shared: &shared
-  app_name: FreeWaterLah
+  app_name: Free Water Lah
 
 test:
   <<: *shared
