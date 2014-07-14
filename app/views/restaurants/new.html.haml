@@ -1,3 +1,4 @@
-= form_for :restaurant do |f|
-  = f.text_field :name
-  = f.submit
+.small-12.medium-6.medium-centered.columns
+  = simple_form_for @restaurant do |f|
+    = f.input :name
+    = f.button :submit
