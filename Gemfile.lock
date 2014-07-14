@@ -42,6 +42,7 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     fssm (0.2.10)
+    geocoder (1.2.3)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -120,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   compass-rails
   foundation-rails
+  geocoder
   haml
   jbuilder (~> 1.2)
   jquery-rails
