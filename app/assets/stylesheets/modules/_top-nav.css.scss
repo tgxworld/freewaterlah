@@ -1,3 +1,7 @@
+.top-nav {
+  text-align: center;
+}
+
 .top-nav-bar {
   display: block;
   background-color: #3e424d;
@@ -6,10 +10,13 @@
 }
 
 .top-nav-bar-header a {
-  font-family: 'Roboto';
   text-transform: uppercase;
-  text-align: center;
   color: #ebe3e2;
   border: 2px solid #cfc6c5;
   padding: 0.5em;
+}
+
+.top-nav-info {
+  background-color: #f5f1f0;
+  padding: 2em 0;
 }

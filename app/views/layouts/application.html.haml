@@ -9,6 +9,7 @@
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto:500,300'
     = javascript_include_tag 'vendor/modernizr'
+    = yield :google_maps_api if content_for(:google_maps_api)
     = csrf_meta_tags
   %body
     = render 'layouts/header'
