@@ -1,0 +1,11 @@
+shared: &shared
+  app_name: FreeWaterLah
+
+test:
+  <<: *shared
+
+development:
+  <<: *shared
+
+production:
+  <<: *shared
