@@ -12,6 +12,7 @@
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var infowindow = new google.maps.InfoWindow();
 
         $.ajax({
           url: "#{restaurants_path(format: :json)}",
@@ -25,6 +26,11 @@
                 position: latLng,
                 map: map
               })
+
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent('<h5>' + value.name + '</h5>');
+                infowindow.open(map, this);
+              });
             }
           }
         })
