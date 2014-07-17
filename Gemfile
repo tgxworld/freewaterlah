@@ -27,6 +27,7 @@ gem 'haml'
 gem 'foundation-rails'
 gem 'geocoder'
 gem 'simple_form'
+gem 'byebug'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
