@@ -4,18 +4,22 @@
 
 .top-nav-bar {
   display: block;
-  background-color: #3e424d;
+  background-color: $primary-background-color;
   padding-top: 3em;
   padding-bottom: 3em;
 }
 
 .top-nav-bar-header a {
   text-transform: uppercase;
-  color: #ebe3e2;
-  border: 2px solid #cfc6c5;
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
   padding: 0.5em;
   font-weight: bold;
   font-size: 0.8em;
+}
+
+.top-nav-bar-header a:hover {
+  text-decoration: none;
 }
 
 .top-nav-info {

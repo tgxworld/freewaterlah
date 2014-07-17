@@ -1,0 +1,21 @@
+.footer {
+  background-color: $primary-background-color;
+  padding: 2em 0;
+}
+
+.footer-list {
+  text-align: center;
+
+  li, a {
+    display: inline-block;
+    color: $secondary-color;
+  }
+
+  li:after {
+    content: '|';
+  }
+
+  li:last-child:after {
+    content: '';
+  }
+}
