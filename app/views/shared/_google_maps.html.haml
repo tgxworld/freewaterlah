@@ -12,38 +12,43 @@
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        var infowindow = new google.maps.InfoWindow();
 
         $.ajax({
           url: "#{restaurants_path(format: :json)}",
           dataType: 'json',
           success: function(data) {
             for (var key in data) {
-              var value = data[key];
-              var latLng = new google.maps.LatLng(value.latitude, value.longitude)
-
-              var marker = new google.maps.Marker({
-                position: latLng,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                icon: "#{asset_path('logo/droplet.png')}"
-              })
-
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent(
-                  '<h5>' + value.name + '</h5>' +
-                  '<p>' + value.street_address + '<p>' +
-                  "<p><a target='_blank' href=" + value.website_url + '/>' +
-                  value.website_url + '</p>'
-                );
-                infowindow.open(map, this);
-              });
+              createMarker(map, data[key]);
             }
           }
         })
 
         google.maps.event.addDomListener(window, 'resize', function() {
           map.setCenter(centerLatLng);
+        });
+      }
+
+      function createMarker(map, value) {
+        var latLng = new google.maps.LatLng(value.latitude, value.longitude);
+
+        var contentString = '<h5>' + value.name + '</h5>' +
+          '<p>' + value.street_address + '<p>' +
+          "<p><a target='_blank' href=" + value.website_url + '/>' +
+          value.website_url + '</p>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: "#{asset_path('logo/droplet.png')}"
+        })
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
         });
       }
 
