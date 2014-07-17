@@ -1,5 +1,5 @@
 - content_for :google_maps_api do
-  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCANOejxMMuIDDlIhtx8QoXa7VHW6LU5t0'
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{AppSettings.google_map_key}"
 
   :javascript
     jQuery(function($) {

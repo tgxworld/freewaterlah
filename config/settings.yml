@@ -1,5 +1,6 @@
 shared: &shared
   app_name: Free Water Lah
+  google_map_key: AIzaSyCANOejxMMuIDDlIhtx8QoXa7VHW6LU5t0
 
 test:
   <<: *shared
