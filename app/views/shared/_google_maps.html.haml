@@ -24,11 +24,18 @@
 
               var marker = new google.maps.Marker({
                 position: latLng,
-                map: map
+                map: map,
+                animation: google.maps.Animation.DROP,
+                icon: "#{asset_path('logo/droplet.png')}"
               })
 
               google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent('<h5>' + value.name + '</h5>');
+                infowindow.setContent(
+                  '<h5>' + value.name + '</h5>' +
+                  '<p>' + value.street_address + '<p>' +
+                  "<p><a target='_blank' href=" + value.website_url + '/>' +
+                  value.website_url + '</p>'
+                );
                 infowindow.open(map, this);
               });
             }
@@ -36,7 +43,7 @@
         })
 
         google.maps.event.addDomListener(window, 'resize', function() {
-            map.setCenter(centerLatLng);
+          map.setCenter(centerLatLng);
         });
       }
 
