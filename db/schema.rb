@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20140714154842) do
   create_table "restaurants", force: true do |t|
     t.string   "name"
     t.string   "street_address"
-    t.integer  "postal_code"
-    t.string   "website_url"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"

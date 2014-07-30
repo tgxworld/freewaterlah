@@ -1,6 +1,18 @@
 = simple_form_for @restaurant do |f|
   = f.input :name
-  = f.input :street_address
-  = f.input :postal_code
-  = f.input :website_url
+  = f.input :latitude
+  = f.input :longitude
   = f.button :submit
+
+- content_for :footer do
+  :javascript
+    jQuery(function($) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(fillForm);
+      }
+
+      function fillForm(location) {
+        $("#restaurant_latitude").val(location.coords.latitude);
+        $("#restaurant_longitude").val(location.coords.longitude);
+      }
+    })

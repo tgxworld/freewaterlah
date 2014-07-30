@@ -32,9 +32,7 @@
         var latLng = new google.maps.LatLng(value.latitude, value.longitude);
 
         var contentString = '<h5>' + value.name + '</h5>' +
-          '<p>' + value.street_address + '<p>' +
-          "<p><a target='_blank' href=" + value.website_url + '/>' +
-          value.website_url + '</p>';
+          '<p>' + value.street_address + '<p>';
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString

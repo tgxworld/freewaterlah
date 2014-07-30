@@ -1,19 +1,14 @@
 class Restaurant < ActiveRecord::Base
-  geocoded_by :address
-  after_validation :geocode, if: :update_geocode?
+  reverse_geocoded_by :latitude, :longitude, address: :street_address
+  after_validation :reverse_geocode, if: :update_geocode?
 
   validates :name, presence: true
-  validates :street_address, presence: true
-  validates :postal_code, presence: true
-  validates :website_url, presence: true, url: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 
   private
 
   def update_geocode?
-    self.street_address_changed? && self.postal_code_changed?
-  end
-
-  def address
-    "#{self.street_address}, Singapore #{self.postal_code}"
+    self.latitude_changed? && self.longitude_changed?
   end
 end
