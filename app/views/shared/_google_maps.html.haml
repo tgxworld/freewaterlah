@@ -5,8 +5,10 @@
     jQuery(function($) {
       function initialize() {
         var centerLatLng = new google.maps.LatLng(1.362497, 103.804148);
+        var isDraggable = $(document).width() > 480 ? true : false;
 
         var mapOptions = {
+          draggable: isDraggable,
           center: centerLatLng,
           zoom: 11
         };
